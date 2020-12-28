@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 
 const indexRouter = require('./routes/index-router')
+const db = require('./models/db')
 
 const app = express()
 
@@ -16,5 +17,7 @@ app.use(morgan('dev'))
 app.use(helmet())
 
 app.use('/', indexRouter)
+
+db.connectToMongo() // should this be here?
 
 module.exports = app
