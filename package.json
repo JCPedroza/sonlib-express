@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-      "start": "nodemon http/server.js"
+    "start": "nodemon http/server.js"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +11,10 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.16.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
