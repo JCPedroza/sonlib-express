@@ -8,6 +8,7 @@ const helmet = require('helmet')
 const session = require('express-session')
 const passport = require('passport')
 const flash = require('express-flash')
+const path = require('path')
 
 const indexRouter = require('./routes/index-router')
 const logoutRouter = require('./routes/logout-router')
@@ -37,9 +38,9 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Why infinite loop if checkAuthenticated is before checkNotAuthenticated?!?!?!
-// It doesn't happen to WebDev Simplified, is it because im using Router?!?!
 app.use('/register', auth.checkNotAuthenticated, registerRouter)
 app.use('/login', auth.checkNotAuthenticated, loginRouter)
 app.use('/', auth.checkAuthenticated, indexRouter)

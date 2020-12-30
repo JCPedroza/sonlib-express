@@ -4,18 +4,19 @@ block content
   h1 Register
 
   form(action="/register" method="POST")
-    div
+    .form-field
       label(for="username") username
-      input(required type="text" id="username" name="username")
+      input.input-string(required type="text" id="username" name="username")
 
-    div
+    .form-field
       label(for="email") email
-      input(required type="email" id="email" name="email")
+      input.input-string(required type="email" id="email" name="email")
 
-    div
+    .form-field
       label(for="password") password
-      input(required type="password" id="password" name="password")
+      input.input-string(required type="password" id="password" name="password")
 
-    button(type="submit") send
+    .form-field
+      button.submit-button(type="submit") send
 
   a(href="/login") login

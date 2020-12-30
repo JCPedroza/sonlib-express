@@ -4,14 +4,15 @@ block content
   h1 Login
 
   form(action="/login" method="POST")
-    div
+    .form-field
       label(for="username") username
-      input(type="text" id="username" name="username")
+      input.input-string(type="text" id="username" name="username")
 
-    div
+    .form-field
       label(for="password") password
-      input(type="password" id="password" name="password")
+      input.input-string(type="password" id="password" name="password")
 
-    button(type="submit") send
+    .form-field
+      button.submit-button(type="submit") send
 
   a(href="/register") register

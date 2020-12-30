@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "nodemon http/server.js"
+    "start": "nodemon http/server.js -e js,mjs,json,pug,css"
   },
   "keywords": [],
   "author": "",
