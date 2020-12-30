@@ -4,7 +4,8 @@ const schemaOptions = {
 
 const mongoOptions = {
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex: true
 }
 
 const modelNames = {

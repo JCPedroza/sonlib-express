@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Logout
+
+  form(action="/logout" method="POST")
+    div
+      p You are logged in as #{username}
+
+    button(type="submit") logout
+
+  a(href="/") index

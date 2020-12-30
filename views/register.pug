@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Register
+
+  form(action="/register" method="POST")
+    div
+      label(for="username") username
+      input(required type="text" id="username" name="username")
+
+    div
+      label(for="email") email
+      input(required type="email" id="email" name="email")
+
+    div
+      label(for="password") password
+      input(required type="password" id="password" name="password")
+
+    button(type="submit") send
+
+  a(href="/login") login
