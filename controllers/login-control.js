@@ -2,7 +2,8 @@ const passport = require('passport')
 
 function get (req, res, nxt) {
   const title = 'Login'
-  const interpols = { title }
+  const status = req.flash('error')
+  const interpols = { title, status }
   res.render('login', interpols)
 }
 

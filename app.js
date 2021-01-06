@@ -3,11 +3,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
-const morgan = require('morgan')
-const helmet = require('helmet')
 const session = require('express-session')
-const passport = require('passport')
+const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
+const passport = require('passport')
+const cookieParser = require('cookie-parser')
+const morgan = require('morgan')
 const path = require('path')
 
 const indexRouter = require('./routes/index-router')
@@ -18,24 +19,29 @@ const loginRouter = require('./routes/login-router')
 const db = require('./models/db')
 const auth = require('./auth/passport')
 
-const app = express()
+const SECRET = process.env.SECRET
+const mongoStore = new MongoStore({ mongooseConnection: db.getConnection() })
+const sessionOptions = {
+  secret: SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: mongoStore
+}
 
-auth.initializePassport(passport) // should this be here?
-db.connectToMongo() // should this be here?
+db.connectToMongo()
+auth.initializePassport(passport)
+
+const app = express()
 
 app.set('view engine', 'pug')
 
-app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
-app.use(helmet())
 
 app.use(flash())
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
+app.use(cookieParser(SECRET))
+app.use(session(sessionOptions))
+
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')))

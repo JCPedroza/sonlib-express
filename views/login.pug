@@ -6,13 +6,13 @@ block content
   form(action="/login" method="POST")
     .form-field
       label(for="username") username
-      input.input-string(type="text" id="username" name="username")
+      input.input-string(type="text" id="username" name="username" required autofocus)
 
     .form-field
       label(for="password") password
-      input.input-string(type="password" id="password" name="password")
+      input.input-string(type="password" id="password" name="password" required)
 
     .form-field
       button.submit-button(type="submit") send
 
-  a(href="/register") register
+  p #{status}
