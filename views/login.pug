@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  h1 Login
-
   form(action="/login" method="POST")
+    .form-field.form-title
+      h2 Login
+
     .form-field
       label(for="username") username
       input.input-string(type="text" id="username" name="username" required autofocus)
