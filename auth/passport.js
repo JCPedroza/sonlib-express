@@ -1,3 +1,4 @@
+const passport = require('passport')
 const { Strategy } = require('passport-local')
 const { compare } = require('bcrypt')
 
@@ -31,7 +32,7 @@ async function deserializeUser (id, done) {
   }
 }
 
-function initializePassport (passport) {
+function initializePassport () {
   passport.use(new Strategy(authenticateUser))
   passport.serializeUser(serializeUser)
   passport.deserializeUser(deserializeUser)
