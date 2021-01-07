@@ -9,11 +9,18 @@ const mongoOptions = {
 }
 
 const modelNames = {
-  user: 'user'
+  user: 'user',
+  song: 'song'
+}
+
+const messages = {
+  yearValidator: 'Year must be an integer.',
+  emailValidator: 'Invalid email'
 }
 
 module.exports = {
   schemaOptions,
   mongoOptions,
-  modelNames
+  modelNames,
+  messages
 }

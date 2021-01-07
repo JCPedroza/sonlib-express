@@ -1,6 +1,6 @@
 const { connect, connection } = require('mongoose')
 
-const { mongoOptions } = require('./db-config')
+const { mongoOptions } = require('../config/db-config')
 
 const DBURL = process.env.DBURL
 const logMsg = `\n  >> DB connected to ${DBURL}\n`

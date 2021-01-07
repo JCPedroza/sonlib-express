@@ -15,7 +15,8 @@ async function post (req, res, nxt) {
     const user = {
       username: req.body.username,
       email: req.body.email,
-      password: await hash(req.body.password, SALT_ROUNDS)
+      password: await hash(req.body.password, SALT_ROUNDS),
+      karma: 0
     }
     await User.create(user)
     res.redirect('/login')

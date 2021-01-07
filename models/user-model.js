@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose')
 const { isEmail } = require('validator')
 
-const { schemaOptions, modelNames } = require('./db-config')
+const { modelNames, messages } = require('../config/db-config')
+const { makeModel } = require('./utils')
 
 const username = {
   type: String,
@@ -16,23 +16,27 @@ const password = {
   required: true
 }
 
+const emailValidator = {
+  validator: isEmail,
+  message: messages.emailValidator
+}
+
 const email = {
   type: String,
   required: true,
-  validate: {
-    validator: isEmail,
-    message: 'Invalid email.'
-  }
+  validate: emailValidator
 }
 
-const userSpec = {
+const karma = {
+  type: Number,
+  required: true
+}
+
+const user = {
   username,
   password,
-  email
+  email,
+  karma
 }
 
-const userSchema = new Schema(userSpec, schemaOptions)
-
-const userModel = model(modelNames.user, userSchema)
-
-module.exports = userModel
+module.exports = makeModel(user, modelNames.user)
