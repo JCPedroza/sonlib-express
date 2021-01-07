@@ -32,7 +32,7 @@ async function deserializeUser (id, done) {
   }
 }
 
-function initializePassport () {
+function initialize () {
   passport.use(new Strategy(authenticateUser))
   passport.serializeUser(serializeUser)
   passport.deserializeUser(deserializeUser)
@@ -55,7 +55,7 @@ function checkNotAuthenticated (req, res, nxt) {
 }
 
 module.exports = {
-  initializePassport,
+  initialize,
   checkAuthenticated,
   checkNotAuthenticated
 }

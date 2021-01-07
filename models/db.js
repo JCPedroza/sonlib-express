@@ -6,7 +6,7 @@ const DBURL = process.env.DBURL
 const logMsg = `\n  >> DB connected to ${DBURL}\n`
 const logFun = () => console.log(logMsg)
 
-function connectToMongo () {
+function initialize () {
   connect(DBURL, mongoOptions, logFun)
 }
 
@@ -15,6 +15,6 @@ function getConnection () {
 }
 
 module.exports = {
-  connectToMongo,
+  initialize,
   getConnection
 }

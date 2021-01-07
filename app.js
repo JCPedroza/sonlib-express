@@ -11,8 +11,8 @@ const view = require('./views/view')
 
 const app = express()
 
-database.connectToMongo()
-auth.initializePassport()
+database.initialize()
+auth.initialize()
 view.set(app)
 middleware.set(app)
 
