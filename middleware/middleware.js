@@ -1,7 +1,6 @@
 const appMiddleware = require('./app-middleware')
-// TODO: put all middleware logic in middleware folder
-const pathMiddleware = require('../routes/path-middleware')
-const authMiddleware = require('../auth/auth-middleware')
+const pathMiddleware = require('./path-middleware')
+const authMiddleware = require('./auth-middleware')
 
 const order = [
   appMiddleware,
@@ -10,9 +9,10 @@ const order = [
 ]
 
 function set (app) {
-  order.forEach(mw => mw.set(app))
+  order.forEach(mwgroup => mwgroup.set(app))
 }
 
 module.exports = {
+  order,
   set
 }

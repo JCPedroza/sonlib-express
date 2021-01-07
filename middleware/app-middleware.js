@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const morgan = require('morgan')
-const flash = require('flash')
+const flash = require('express-flash')
 
 const homePath = path.resolve(__dirname, '..')
 const staticPath = path.join(homePath, 'public')
@@ -19,9 +19,10 @@ const order = [
 ]
 
 function set (app) {
-  order.forEach(mw => app.use(mw))
+  order.forEach(appmw => app.use(appmw))
 }
 
 module.exports = {
+  order,
   set
 }

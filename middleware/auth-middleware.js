@@ -2,10 +2,11 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
 
-const db = require('../models/db')
+const database = require('../models/database')
 
 const SECRET = process.env.SECRET
-const mongoStore = new MongoStore({ mongooseConnection: db.getConnection() })
+const mongooseConnection = database.getConnection()
+const mongoStore = new MongoStore({ mongooseConnection })
 const sessionOptions = {
   secret: SECRET,
   resave: false,
@@ -24,9 +25,10 @@ const order = [
 ]
 
 function set (app) {
-  order.forEach(mw => app.use(mw))
+  order.forEach(authmw => app.use(authmw))
 }
 
 module.exports = {
+  order,
   set
 }
