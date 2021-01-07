@@ -4,15 +4,16 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express')
 
-const database = require('./models/db')
+const database = require('./models/database')
 const auth = require('./auth/passport')
-const middleware = require('./middleware/mw')
 const view = require('./views/view')
+const middleware = require('./middleware/middleware')
 
 const app = express()
 
 database.initialize()
 auth.initialize()
+
 view.set(app)
 middleware.set(app)
 
