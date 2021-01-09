@@ -4,8 +4,11 @@ html(lang="en")
   head
     title #{title}
     meta(charset="UTF-8")
-    link(rel="stylesheet" href="styles/main.css")
-    block scripts
+    style
+      include /styles/initialize.css
+      block styles
+    script(defer)
+      block scripts
 
   body
     main

@@ -3,6 +3,7 @@ const logoutRouter = require('../routes/logout-router')
 const registerRouter = require('../routes/register-router')
 const loginRouter = require('../routes/login-router')
 const songsRouter = require('../routes/songs-router')
+const addsongRouter = require('../routes/addsong-router')
 
 const { pathMiddleware } = require('../routes/utils')
 
