@@ -1,4 +1,9 @@
-@import "/styles/fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+:root {
+  --button-bg: #111;
+  --button-bg-hover: #000;
+}
 
 html,
 body {
@@ -9,4 +14,19 @@ body {
 
 body {
   font-family: Montserrat, sans-serif;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  background: var(--button-bg);
+  color: white;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
+}
+
+button:hover {
+  background: var(--button-bg-hover);
 }

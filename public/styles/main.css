@@ -1,18 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+/*  justify-content: center; */
   height: 100%;
 }
 
 form {
   margin: 0.5rem auto;
   padding: 0.5rem;
-}
-
-button {
-
 }
 
 .form-field {
@@ -27,8 +25,24 @@ button {
 }
 
 .submit-button {
-  cursor: pointer;
   width: 100%;
   margin: 1rem auto;
   padding: 0.25rem;
+}
+
+.button-mini {
+  font-family: "Roboto Mono", monospace;
+  margin: auto 0.25rem;
+  padding: 0 0.25rem;
+}
+
+.box-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: auto 1rem;
+}
+
+.box-label-dynamic {
+  display: flex;
+  flex-direction: row;
 }

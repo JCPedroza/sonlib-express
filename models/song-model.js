@@ -1,4 +1,4 @@
-const { isInt } = require('validator')
+const { ObjectId } = require('mongoose')
 
 const { modelNames, messages } = require('../config/db-config')
 const { makeModel } = require('./utils')
@@ -12,6 +12,7 @@ const name = {
 
 const role = {
   type: String,
+  required: true,
   minlength: 2,
   maxlength: 128
 }
@@ -25,18 +26,18 @@ const authorArray = {
   type: [author]
 }
 
-const genre = {
+const tag = {
   type: String,
   minlength: 2,
   maxlength: 128
 }
 
-const genreArray = {
-  type: [genre]
+const tagArray = {
+  type: [tag]
 }
 
 const yearValidator = {
-  validator: isInt,
+  validator: Number.isInteger,
   message: messages.yearValidator
 }
 
@@ -49,23 +50,29 @@ const year = {
 
 const key = {
   type: String,
-  minlength: 6,
+  minlength: 1,
   maxlength: 32
 }
 
 const chords = {
   type: String,
-  minlength: 8,
+  minlength: 1,
   maxlength: 1024
+}
+
+const createdBy = {
+  type: ObjectId,
+  required: true
 }
 
 const song = {
   name,
   authorArray,
-  genreArray,
+  tagArray,
   year,
   key,
-  chords
+  chords,
+  createdBy
 }
 
 module.exports = makeModel(song, modelNames.song)

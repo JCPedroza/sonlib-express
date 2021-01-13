@@ -7,5 +7,6 @@ const addsongRouter = new Router()
 addsongRouter
   .route('/')
   .get(addsongControl.get)
+  .post(addsongControl.post)
 
 module.exports = addsongRouter
