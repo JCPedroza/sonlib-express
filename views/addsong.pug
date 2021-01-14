@@ -14,27 +14,27 @@ block content
 
     .form-field
       label(for="name") name
-      input.input-string#name(type="text" name="name" required autofocus)
+      input.string#name(type="text" name="name" required autofocus)
 
     .form-field
       label(for="year") year
-      input.input-string#year(type="text" name="year")
+      input.string#year(type="text" name="year")
 
     .form-field
       label(for="key") key
-      input.input-string#key(type="text" name="key")
+      input.string#key(type="text" name="key")
 
     .form-field
       label(for="chords") chords
-      input.input-string#chords(type="text" name="chords")
+      input.string#chords(type="text" name="chords")
 
     .form-field
       label(for="tags") tags
-      input.input-string#tags(required type="text" name="tags")
+      input.string#tags(required type="text" name="tags")
 
-    .form-field#field-authors
+    .form-field#div-authors
       .box-label-dynamic
-        label(for="author") author
+        label(for="authorname") name
         .box-buttons
           button.button-mini#button-minus(type="button") -
           button.button-mini#button-plus(type="button") +

@@ -1,13 +1,13 @@
+const divAuthors = document.getElementById('div-authors')
 const buttonMinus = document.getElementById('button-minus')
 const buttonPlus = document.getElementById('button-plus')
-const fieldAuthors = document.getElementById('field-authors')
 
 const MAX_AUTHORS = 20
-const prefixAuthor = 'author-'
+const prefixName = 'name-'
 const prefixRole = 'role-'
-const authors = []
+const names = []
 const roles = []
-const boxes = []
+const authors = []
 
 function inputText (id, name, isRequired = true) {
   const input = document.createElement('input')
@@ -23,30 +23,30 @@ function dynamicId (prefix, array) {
 }
 
 function addAuthor () {
-  if (authors.length < MAX_AUTHORS) {
-    const idAuthor = dynamicId(prefixAuthor, authors)
+  if (names.length < MAX_AUTHORS) {
+    const idName = dynamicId(prefixName, names)
     const idRole = dynamicId(prefixRole, roles)
-    const author = inputText(idAuthor, 'author')
+    const name = inputText(idName, 'authorname')
     const role = inputText(idRole, 'role')
-    const box = document.createElement('div')
+    const div = document.createElement('div')
 
-    box.appendChild(author)
-    box.appendChild(role)
-    box.class = 'box-twintext'
-    fieldAuthors.appendChild(box)
+    div.appendChild(name)
+    div.appendChild(role)
+    div.class = 'div-twintext'
+    divAuthors.appendChild(div)
 
-    boxes.push(box)
-    authors.push(author)
+    authors.push(div)
+    names.push(name)
     roles.push(role)
   }
 }
 
 function removeAuthor () {
-  if (authors.length > 0) {
-    const box = boxes.pop()
-    box.removeChild(authors.pop())
-    box.removeChild(roles.pop())
-    fieldAuthors.removeChild(box)
+  if (names.length > 0) {
+    const div = authors.pop()
+    div.removeChild(names.pop())
+    div.removeChild(roles.pop())
+    divAuthors.removeChild(div)
   }
 }
 

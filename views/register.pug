@@ -14,19 +14,19 @@ block content
 
     .form-field
       label(for="username") username
-      input.input-string(type="text" id="username" name="username" required autofocus)
+      input.string#username(type="text" name="username" required autofocus)
 
     .form-field
       label(for="email") email
-      input.input-string(type="email" id="email" name="email" required)
+      input.string#email(type="email" name="email" required)
 
     .form-field
       label(for="password") password
-      input.input-string(type="password" id="password" name="password" required)
+      input.string#password(type="password" name="password" required)
 
     .form-field
       label(for="confirm") confirm password
-      input.input-string(type="password" id="confirm" name="confirm" required)
+      input.string#confirm(type="password" name="confirm" required)
 
     .form-field
-      button.submit-button(type="submit" id="submit") register
+      button.submit-button(type="submit") register

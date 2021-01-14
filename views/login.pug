@@ -3,19 +3,23 @@ extends parents/master-layout
 block styles
   include /styles/main.css
 
+block scripts
+  include /scripts/login.js
+
 block content
-  form(action="/login" method="POST")
+  form(action="" method="POST")
 
     .form-field.form-title
       h2 Login
 
     .form-field
       label(for="username") username
-      input.input-string(type="text" id="username" name="username" required autofocus)
+      input.input-string#username(type="text" name="username" required autofocus)
 
     .form-field
       label(for="password") password
-      input.input-string(type="password" id="password" name="password" required)
+      input.input-string#password(type="password" name="password" required)
+      button#showPswdButton(type="button") show
 
     .form-field
       button.submit-button(type="submit") login

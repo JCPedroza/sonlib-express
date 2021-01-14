@@ -1,8 +1,5 @@
 const Song = require('../models/song-model')
 
-const prefixAuthor = 'author-'
-const prefixRole = 'role-'
-
 function get (req, res, nxt) {
   const title = 'Add Song'
   const interpols = { title }
@@ -29,7 +26,7 @@ async function post (req, res, nxt) {
 }
 
 function getAuthors (req) {
-  const names = req.body.author
+  const names = req.body.authorname
   const roles = req.body.role
   const authors = []
 
@@ -44,7 +41,8 @@ function getAuthors (req) {
 }
 
 function getTags (req) {
-  return req.body.tags.split(',').map(tag => tag.trim())
+  const tags = req.body.tags
+  return tags.split(',').map(tag => tag.trim())
 }
 
 module.exports = {
