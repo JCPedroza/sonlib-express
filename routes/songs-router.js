@@ -8,7 +8,6 @@ const songsRouter = new Router()
 songsRouter
   .route('/')
   .get(songControl.get)
-  .post(songControl.post)
 
 songsRouter.use('/add', addsongRouter)
 

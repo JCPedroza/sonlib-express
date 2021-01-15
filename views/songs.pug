@@ -5,3 +5,15 @@ block styles
 
 block content
   h1 Welcome to /songs
+
+  table
+    thead
+      tr
+        th( colspan="2") songs
+
+    tbody
+      each song in queryResults
+        tr
+         td=song.name
+         td=song.key
+         td=song.year

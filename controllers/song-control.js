@@ -1,28 +1,20 @@
-const { Song } = require('../models/song-model')
+const Song = require('../models/song-model')
 
-function get (req, res, nxt) {
-  const title = 'Songs'
-  const interpols = { title }
-  res.render('songs', interpols)
-}
-
-async function post (req, res, nxt) {
-  const song = {
-    name: req.body.name,
-    year: req.body.year,
-    key: req.body.key,
-    chords: req.body.chords
-  }
-
+async function get (req, res, nxt) {
   try {
-    await Song.create(song)
-    res.redirect('/songs')
+    const limit = 10
+    const filter = {}
+    const projection = { name: 1, key: 1, year: 1 }
+    const options = { limit }
+    const title = 'Songs'
+    const queryResults = await Song.find(filter, projection, options)
+    const interpols = { title, queryResults }
+    res.render('songs', interpols)
   } catch (err) {
     nxt(err)
   }
 }
 
 module.exports = {
-  get,
-  post
+  get
 }

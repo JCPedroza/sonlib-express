@@ -1,0 +1,44 @@
+extends parents/master-layout
+
+block styles
+  include /styles/main.css
+
+block scripts
+  include /scripts/addsong.js
+
+block content
+  form(action="" method="POST")
+
+    .form-field.form-title
+      h2 Add Song
+
+    .form-field
+      label(for="name") name
+      input.input-string#name(type="text" name="name" required)
+
+    .form-field
+      label(for="year") year
+      input.input-string#year(type="text" name="year")
+
+    .form-field
+      label(for="key") key
+      input.input-string#key(type="text" name="key")
+
+    .form-field
+      label(for="chords") chords
+      input.input-string#chords(type="text" name="chords")
+
+    .form-field
+      label(for="tags") tags
+      input.input-string#tags(required type="text" name="tags")
+
+    .form-field#field-authors
+      .box-label-dynamic
+        label(for="author") author
+        .box-buttons
+          button.button-mini#button-minus(type="button") -
+          button.button-mini#button-plus(type="button") +
+        label(for="role") role
+
+    .form-field
+      button.submit-button(type="submit") add song
